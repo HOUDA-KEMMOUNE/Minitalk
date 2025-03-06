@@ -13,8 +13,8 @@
 NAME = minitalk
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-SRC = server.c client.c
-OBJ = server.o client.o
+SRC = *.c
+OBJ = *.o
 
 all: $(NAME)
 

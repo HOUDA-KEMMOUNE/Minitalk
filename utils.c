@@ -61,4 +61,26 @@ int	check_if_nbr(char *str)
 	neg_and_pos(str);
 	return (0);
 }
-/*------------check_if_nbr--------------*/
+
+/*------------print_bits--------------*/
+void	print_bits(unsigned char octet)
+{
+	int	i;
+	int	shift;
+	int	bit;
+
+	i = 7;
+	while (i >= 0)
+	{
+		shift = 1 << i;
+		bit = shift & octet;
+		if (bit == 0)
+			write(1, "0", 1);
+		else
+			write(1, "1", 1);
+		i--;
+	}
+}
+
+/*------------print_bits--------------*/
+
