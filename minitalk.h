@@ -15,13 +15,15 @@
 # define _POSIX_C_SOURCE 200809L
 
 # include <signal.h>
-# include <unistd.h>
 # include <stdio.h>
-# include <limits.h>
 # include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 // unsigned int	ft_atoi(const char *str);
 void	print_error(void);
+void    ft_putstr(char *s);
+int		check_if_nbr(char *str);
 
 #endif
