@@ -24,8 +24,8 @@ void	handler(int	sig_nbr)
 	bit++;
 	if (bit == 8)
 	{
-		if (letter == '\0')
-			exit(0);
+		// if (letter == '\0')
+		// 	exit(0);
 		write(1, &letter, 1);
 		bit = 0;
 		letter = 0;
