@@ -63,24 +63,24 @@ int	check_if_nbr(char *str)
 }
 
 /*------------print_bits--------------*/
-void	print_bits(unsigned char octet)
-{
-	int	i;
-	int	shift;
-	int	bit;
+// void	print_bits(unsigned char octet)
+// {
+// 	int	i;
+// 	int	shift;
+// 	int	bit;
 
-	i = 7;
-	while (i >= 0)
-	{
-		shift = 1 << i;
-		bit = shift & octet;
-		if (bit == 0)
-			write(1, "0", 1);
-		else
-			write(1, "1", 1);
-		i--;
-	}
-}
+// 	i = 7;
+// 	while (i >= 0)
+// 	{
+// 		shift = 1 << i;
+// 		bit = shift & octet;
+// 		if (bit == 0)
+// 			write(1, "0", 1);
+// 		else
+// 			write(1, "1", 1);
+// 		i--;
+// 	}
+// }
 
 /*------------print_bits--------------*/
 

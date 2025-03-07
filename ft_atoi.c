@@ -19,6 +19,12 @@ static int	check(const char *str, int i)
 	return (i);
 }
 
+static void	wrong_pid_mess(void)
+{
+	ft_putstr("Wrong PID :/\n");
+	exit(1);
+}
+
 int    ft_atoi(const char *str)
 {
 	int		i;
@@ -35,9 +41,12 @@ int    ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
-		result = result * 10 + (str[i] - '0');
+		if (str[i] >= '0' && str[i] <= '9')
+			result = result * 10 + (str[i] - '0');
+		else
+			wrong_pid_mess();
 		i++;
 	}
 	return ((int)result * sign);
