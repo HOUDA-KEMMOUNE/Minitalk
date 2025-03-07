@@ -29,11 +29,14 @@ void	print_bits(char c, pid_t server_pid)
 			error = kill(server_pid, SIGUSR1); //SIGUSR1 ghatakhod 0
 		else
 			error = kill(server_pid, SIGUSR2); //SIGUSR2 ghatakhod 1
-		sleep(1);
+		usleep(500);
 		i--;
 	}
 	if (error == -1)
+	{
+		printf("skibidi toilet\n");
 		print_error();
+	}
 }
 
 void	send_char_by_char(char *message, pid_t server_pid)
@@ -44,6 +47,7 @@ void	send_char_by_char(char *message, pid_t server_pid)
 	while (message[i])
 	{
 		print_bits(message[i], server_pid);
+		// usleep(500);
 		i++;
 	}
 }

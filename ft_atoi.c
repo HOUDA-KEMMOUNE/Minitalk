@@ -19,12 +19,6 @@ static int	check(const char *str, int i)
 	return (i);
 }
 
-static void	wrong_pid_mess(void)
-{
-	ft_putstr("Wrong PID :/\n");
-	exit(1);
-}
-
 int    ft_atoi(const char *str)
 {
 	int		i;

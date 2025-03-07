@@ -19,7 +19,15 @@ void	print_error(void)
 	exit (1);
 }
 
+/*------------print_error--------------*/
+void	wrong_pid_mess(void)
+{
+	ft_putstr("Wrong PID :/\n");
+	exit(1);
+}
+
 /*------------ft_putstr--------------*/
+
 void	ft_putstr(char *s)
 {
 	size_t	i;
@@ -83,4 +91,23 @@ int	check_if_nbr(char *str)
 // }
 
 /*------------print_bits--------------*/
+
+void	ft_putnbr(int	n)
+{
+	char	c;
+
+	if (n <= 0)
+		wrong_pid_mess();
+	else if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		c = (n % 10) + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+}
 
