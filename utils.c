@@ -42,25 +42,3 @@ void	ft_putstr(char *s)
 	}
 }
 /*------------check_if_nbr--------------*/
-
-static void	neg_and_pos(char *str)
-{
-	int	j;
-
-	j = 0;
-	if ((str[0] == '-' || str[0] == '+')
-		&& (str[1] == ' ' || str[1] == '\0'))
-		print_error();
-	if (str[0] == '-' || str[0] == '+')
-		j++;
-	while (str[j])
-	{
-		if ((str[j] == '-' || str[j] == '+') && (str[j - 1] == ' '))
-			j++;
-		if ((str[j] >= '0' && str[j] <= '9') || str[j] == ' ')
-			j++;
-		else
-			print_error();
-		j++;
-	}
-}

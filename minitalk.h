@@ -23,7 +23,7 @@
 # include <sys/time.h>
 
 int		ft_atoi(const char *str);
-// unsigned int	ft_atoi(const char *str);
+void	neg_and_pos(char *str);
 void	print_error(void);
 void	ft_putstr(char *s);
 int		check_if_nbr(char *str);
