@@ -26,14 +26,11 @@ void	print_bits(char c, pid_t server_pid)
 		shifted = 1 << i;
 		bit = c & shifted;
 		if (bit == 0)
-			error = kill(server_pid, SIGUSR1); //SIGUSR1 ghatakhod 0
+			error = kill(server_pid, SIGUSR1);
 		else
-			error = kill(server_pid, SIGUSR2); //SIGUSR2 ghatakhod 1
+			error = kill(server_pid, SIGUSR2);
 		if (error == -1)
-		{
-			printf("skibidi toilet\n");
 			print_error();
-		}
 		usleep(500);
 		i--;
 	}
@@ -52,7 +49,7 @@ void	send_char_by_char(char *message, pid_t server_pid)
 	print_bits('\0', server_pid);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	pid_t	server_pid;
 	char	*message;
@@ -60,7 +57,6 @@ int main(int ac, char **av)
 	if (ac == 3)
 	{
 		server_pid = ft_atoi(av[1]);
-		printf("Server PID: %d\n", server_pid);
 		if (server_pid <= 0 || server_pid > 2147483647)
 		{
 			ft_putstr("Invalid PID\n");

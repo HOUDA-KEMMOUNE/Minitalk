@@ -14,8 +14,8 @@ CC = cc
 SERVER = server
 CLIENT = client
 CFLAGS = -Wall -Wextra -Werror
-SRC_S = server.c utils.c
-SRC_C = client.c ft_atoi.c utils.c
+SRC_S = server.c utils.c utils2.c
+SRC_C = client.c ft_atoi.c utils.c utils2.c
 OBJ_S = $(SRC_S:.c=.o)
 OBJ_C = $(SRC_C:.c=.o)
 

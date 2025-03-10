@@ -22,13 +22,12 @@
 # include <unistd.h>
 # include <sys/time.h>
 
-
 int		ft_atoi(const char *str);
 // unsigned int	ft_atoi(const char *str);
 void	print_error(void);
-void    ft_putstr(char *s);
+void	ft_putstr(char *s);
 int		check_if_nbr(char *str);
-void	ft_putnbr(int	n);
+void	ft_putnbr(int n);
 void	wrong_pid_mess(void);
 // void	print_bits(unsigned char octet);
 

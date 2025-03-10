@@ -12,14 +12,27 @@
 
 #include "minitalk.h"
 
+void	send_character(int *len, char *letter)
+{
+	if (*letter == '\0')
+	{
+		write(1, "\0\n", 2);
+		*len = 0;
+		*letter = 0;
+	}
+	write(1, letter, 1);
+	*len = 0;
+	*letter = 0;
+}
+
 void	handler(int sig_nbr, siginfo_t *info, void *context)
 {
-	(void)context;
 	static char	letter;
 	static int	bit;
 	static int	len;
 	static int	pid;
 
+	(void)context;
 	if (!pid)
 		pid = info->si_pid;
 	if (pid != info->si_pid)
@@ -35,33 +48,21 @@ void	handler(int sig_nbr, siginfo_t *info, void *context)
 	letter = (letter << 1) | (bit & 1);
 	len++;
 	if (len == 8)
-	{
-		/*
-		if (letter == '\0')
-		{
-			write(1, "\0\n", 2);
-			len = 0;
-			letter = 0;
-			exit(0);
-		}*/
-		write(1, &letter, 1);
-		len = 0;
-		letter = 0;
-	}
+		send_character(&len, &letter);
 }
 
-int main()
+int	main(void)
 {
-	int	id;
-	struct sigaction	move;	
+	int					id;
+	struct sigaction	move;
 
 	id = getpid();
 	ft_putnbr(id);
 	write(1, "\n", 1);
 	move.sa_sigaction = handler;
 	move.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &move, NULL);;
-	sigaction(SIGUSR2, &move, NULL);;
+	sigaction(SIGUSR1, &move, NULL);
+	sigaction(SIGUSR2, &move, NULL);
 	while (1)
 		pause();
 	return (0);
