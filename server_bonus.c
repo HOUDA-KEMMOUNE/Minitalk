@@ -14,15 +14,18 @@
 
 void	send_character(int *len, char *letter)
 {
-	if (*letter == '\0')
+	if (*len == 8)
 	{
-		write(1, "\0\n", 2);
+		if (*letter == '\0')
+		{
+			write(1, "\n", 2);
+			*len = 0;
+			*letter = 0;
+		}
+		write(1, letter, 1);
 		*len = 0;
 		*letter = 0;
 	}
-	write(1, letter, 1);
-	*len = 0;
-	*letter = 0;
 }
 
 void	handler(int sig_nbr, siginfo_t *info, void *context)
@@ -31,6 +34,7 @@ void	handler(int sig_nbr, siginfo_t *info, void *context)
 	static int	bit;
 	static int	len;
 	static int	pid;
+	int			error;
 
 	(void)context;
 	if (!pid)
@@ -47,8 +51,10 @@ void	handler(int sig_nbr, siginfo_t *info, void *context)
 		bit = 1;
 	letter = (letter << 1) | (bit & 1);
 	len++;
-	if (len == 8)
-		send_character(&len, &letter);
+	send_character(&len, &letter);
+	error = kill(pid, SIGUSR1);
+	if (error == -1)
+		print_error();
 }
 
 int	main(void)
