@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "signal.h": "c",
-        "minitalk.h": "c"
+        "minitalk.h": "c",
+        "expected": "c"
     }
 }

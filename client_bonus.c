@@ -12,10 +12,11 @@
 
 #include "minitalk.h"
 
-void	check_receive(int sig)
-{
-	(void)sig;
-}
+// void	check_receive(int sig)
+// {
+// 	(void)sig;
+// 	// printf("message wsal alm3alam\n");
+// }
 
 void	print_bits(char c, int server_pid)
 {
@@ -51,6 +52,12 @@ void	send_char_by_char(char *message, pid_t server_pid)
 	print_bits('\0', server_pid);
 }
 
+void	check_receive(int sig)
+{
+	if (sig == SIGUSR1)
+		printf("message wsal alm3alam\n");
+}
+
 int	main(int ac, char **av)
 {
 	int		server_pid;
@@ -58,6 +65,7 @@ int	main(int ac, char **av)
 
 	if (ac == 3)
 	{
+		signal(SIGUSR2, check_receive);
 		signal(SIGUSR1, check_receive);
 		server_pid = ft_atoi(av[1]);
 		message = av[2];

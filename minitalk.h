@@ -12,14 +12,11 @@
 
 #ifndef MINITALK_H
 # define MINITALK_H
-// # define _POSIX_C_SOURCE 200809L
-// # define _XOPEN_SOURCE 500
 
 # include <signal.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <sys/time.h>
 # include <sys/types.h>
 # include <unistd.h>
 
@@ -30,6 +27,5 @@ void	ft_putstr(char *s);
 int		check_if_nbr(char *str);
 void	ft_putnbr(int n);
 void	wrong_pid_mess(void);
-// void	print_bits(unsigned char octet);
 
 #endif
