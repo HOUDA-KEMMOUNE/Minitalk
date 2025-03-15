@@ -12,11 +12,10 @@
 
 #include "minitalk.h"
 
-// void	check_receive(int sig)
-// {
-// 	(void)sig;
-// 	// printf("message wsal alm3alam\n");
-// }
+void	check_receive(int sig)
+{
+	(void)sig;
+}
 
 void	print_bits(char c, int server_pid)
 {
@@ -44,18 +43,19 @@ void	print_bits(char c, int server_pid)
 
 void	send_char_by_char(char *message, pid_t server_pid)
 {
-	while (*message)
-	{
-		print_bits(*message, server_pid);
-		message++;
-	}
-	print_bits('\0', server_pid);
-}
+	char	c;
+	int		i;
 
-void	check_receive(int sig)
-{
-	if (sig == SIGUSR1)
-		printf("message wsal alm3alam\n");
+	i = 0;
+	while (message[i])
+	{
+		print_bits(message[i], server_pid);
+		i++;
+	}
+	c = message[i];
+	print_bits('\0', server_pid);
+	if (c == '\0')
+		ft_putstr("l message wsal alm3alam\n");
 }
 
 int	main(int ac, char **av)
@@ -65,7 +65,6 @@ int	main(int ac, char **av)
 
 	if (ac == 3)
 	{
-		signal(SIGUSR2, check_receive);
 		signal(SIGUSR1, check_receive);
 		server_pid = ft_atoi(av[1]);
 		message = av[2];
@@ -77,5 +76,5 @@ int	main(int ac, char **av)
 		send_char_by_char(message, server_pid);
 	}
 	else
-		printf("ERROR: Usage --> %s <PID> <message>\n", av[0]);
+		ft_putstr("ERROR\n-> Please enter three arguments !\n");
 }

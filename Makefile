@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC_S = server.c utils.c utils2.c
+SRC_S = server.c utils.c ft_atoi.c utils2.c 
 SRC_C = client.c ft_atoi.c utils.c utils2.c
-SRC_S_B = server.c utils.c utils2.c
-SRC_C_B = client.c ft_atoi.c utils.c utils2.c
+SRC_S_B = server_bonus.c utils.c ft_atoi.c utils2.c 
+SRC_C_B = client_bonus.c ft_atoi.c utils.c utils2.c
 
 OBJ_S = $(SRC_S:.c=.o)
 OBJ_C = $(SRC_C:.c=.o)
@@ -49,4 +49,4 @@ clean:
 fclean: clean
 	rm -rf $(SERVER) $(CLIENT) $(SERVER_BONUS) $(CLIENT_BONUS)
 
-re: fclean all bonus
+re: fclean all

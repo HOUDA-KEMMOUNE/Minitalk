@@ -43,11 +43,16 @@ void	print_bits(char c, int server_pid)
 
 void	send_char_by_char(char *message, pid_t server_pid)
 {
-	while (*message)
+	char	c;
+	int		i;
+
+	i = 0;
+	while (message[i])
 	{
-		print_bits(*message, server_pid);
-		message++;
+		print_bits(message[i], server_pid);
+		i++;
 	}
+	c = message[i];
 	print_bits('\0', server_pid);
 }
 
@@ -69,5 +74,5 @@ int	main(int ac, char **av)
 		send_char_by_char(message, server_pid);
 	}
 	else
-		printf("ERROR: Usage --> %s <PID> <message>\n", av[0]);
+		ft_putstr("ERROR\n-> Please enter three arguments !\n");
 }

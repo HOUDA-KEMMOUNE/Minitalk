@@ -17,11 +17,7 @@ void	send_character(int *len, char *letter)
 	if (*len == 8)
 	{
 		if (*letter == '\0')
-		{
-			write(1, "\n", 2);
-			*len = 0;
-			*letter = 0;
-		}
+			ft_putstr("\n");
 		write(1, letter, 1);
 		*len = 0;
 		*letter = 0;
