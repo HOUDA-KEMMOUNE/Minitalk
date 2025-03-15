@@ -55,7 +55,9 @@ void	send_char_by_char(char *message, pid_t server_pid)
 	c = message[i];
 	print_bits('\0', server_pid);
 	if (c == '\0')
-		ft_putstr("l message wsal alm3alam\n");
+		ft_putstr("Done !\n");
+	else
+		return ;
 }
 
 int	main(int ac, char **av)

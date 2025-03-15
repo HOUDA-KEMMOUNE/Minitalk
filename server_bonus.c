@@ -22,6 +22,8 @@ void	send_character(int *len, char *letter)
 		*len = 0;
 		*letter = 0;
 	}
+	else
+		return ;
 }
 
 void	handler(int sig_nbr, siginfo_t *info, void *context)
