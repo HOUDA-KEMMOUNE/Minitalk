@@ -43,7 +43,6 @@ void	print_bits(char c, int server_pid)
 
 void	send_char_by_char(char *message, pid_t server_pid)
 {
-	char	c;
 	int		i;
 
 	i = 0;
@@ -52,7 +51,6 @@ void	send_char_by_char(char *message, pid_t server_pid)
 		print_bits(message[i], server_pid);
 		i++;
 	}
-	c = message[i];
 	print_bits('\0', server_pid);
 }
 
